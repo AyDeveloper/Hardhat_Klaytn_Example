@@ -1,46 +1,49 @@
-# Advanced Sample Hardhat Project
+# Harhat_Klaytn_Example
 
-This project demonstrates an advanced Hardhat use case, integrating other tools commonly used alongside Hardhat in the ecosystem.
+This is a simple example for setting up a hardhat project for Klaytn putting in to consideration its fixed gas price model.
 
-The project comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts. It also comes with a variety of other tools, preconfigured to work with the project code.
+Klaytn makes use of a fixed gas price model. This means developers would need to be extra careful when using Ethereum native tooling for they have to set the right amount of gas when creating a transaction. The need to put this into consideration when you are using Ethereum tools on Klaytn is the reason behind this repo. 
 
-Try running some of the following tasks:
+This would guide you into how to set up a project, test and deploy it to klaytn putting into consideration the Klaytn compatible gas price using Hardhat and ethers js.
 
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-npx hardhat help
-REPORT_GAS=true npx hardhat test
-npx hardhat coverage
-npx hardhat run scripts/deploy.ts
-TS_NODE_FILES=true npx ts-node scripts/deploy.ts
-npx eslint '**/*.{js,ts}'
-npx eslint '**/*.{js,ts}' --fix
-npx prettier '**/*.{json,sol,md}' --check
-npx prettier '**/*.{json,sol,md}' --write
-npx solhint 'contracts/**/*.sol'
-npx solhint 'contracts/**/*.sol' --fix
-```
-
-# Etherscan verification
-
-To try out Etherscan verification, you first need to deploy a contract to an Ethereum network that's supported by Etherscan, such as Ropsten.
-
-In this project, copy the .env.example file to a file named .env, and then edit it to fill in the details. Enter your Etherscan API key, your Ropsten node URL (eg from Alchemy), and the private key of the account which will send the deployment transaction. With a valid .env file in place, first deploy your contract:
+## Installation
+1. Clone this repo:
 
 ```shell
-hardhat run --network ropsten scripts/deploy.ts
+git clone https://github.com/Timidan/diamond-3-hardhat.git
 ```
 
-Then, copy the deployment address and paste it in to replace `DEPLOYED_CONTRACT_ADDRESS` in this command:
+2. Install NPM packages:
 
 ```shell
-npx hardhat verify --network ropsten DEPLOYED_CONTRACT_ADDRESS "Hello, Hardhat!"
+cd diamond-3-hardhat
+npm install or yarn install
 ```
 
-# Performance optimizations
+3. Compile Contract
 
-For faster runs of your tests and scripts, consider skipping ts-node's type checking by setting the environment variable `TS_NODE_TRANSPILE_ONLY` to `1` in hardhat's environment. For more details see [the documentation](https://hardhat.org/guides/typescript.html#performance-optimizations).
+```shell
+  npx hardhat compile
+```
+
+4. Start Hardhat Node
+
+```shell
+  npx hardhat node
+```
+
+5. Deployment
+
+```shell
+npx hardhat run scripts/deploy.ts --network localhost
+```
+
+5. Run tests
+
+```shell
+npx hardhat test test/index.ts --network localhost
+```
+
+
+# Other Links
+Using Ethereum tools in Klaytn https://medium.com/klaytn/using-ethereum-tools-in-klaytn-dc068d48de04
