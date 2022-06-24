@@ -46,4 +46,5 @@ npx hardhat test test/index.ts --network localhost
 
 
 # Other Links
+How to set up a hardhat project for klaytn https://oxpampam.hashnode.dev/how-to-set-up-a-hardhat-project-for-klaytn
 Using Ethereum tools in Klaytn https://medium.com/klaytn/using-ethereum-tools-in-klaytn-dc068d48de04
