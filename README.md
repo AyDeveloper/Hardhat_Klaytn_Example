@@ -10,14 +10,14 @@ This would guide you into how to set up a project, test and deploy it to klaytn 
 1. Clone this repo:
 
 ```shell
-git clone https://github.com/Timidan/diamond-3-hardhat.git
+git clone https://github.com/AyDeveloper/Hardhat_Klaytn_Example.git
 ```
 
 2. Install NPM packages:
 
 ```shell
-cd diamond-3-hardhat
-npm install or yarn install
+cd Hardhat_Klaytn_Example
+npm install
 ```
 
 3. Compile Contract
