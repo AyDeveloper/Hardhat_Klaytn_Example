@@ -19,26 +19,57 @@ git clone https://github.com/AyDeveloper/Hardhat_Klaytn_Example.git
 cd Hardhat_Klaytn_Example
 npm install
 ```
+3. Setting Hardhat Config
+```shell
+  const config: HardhatUserConfig = {
+  solidity: "0.8.4",
+  networks: {
+    klaytn: {
+      url: process.env.KLAYTN_URL || "",
+      // This is the only field we are including in our file
+      gasPrice: 250000000000,
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
+  },
+  gasReporter: {
+    enabled: process.env.REPORT_GAS !== undefined,
+    currency: "USD",
+  },
+  etherscan: {
+    apiKey: process.env.ETHERSCAN_API_KEY,
+  },
+};
 
-3. Compile Contract
+```
+
+4. : Create a .env file and paste the code below
+
+```shell
+   KLAYTN_URL='https://api.baobab.klaytn.net:8651'
+  PRIVATE_KEY= your private key copied from kaikas wallet
+
+```
+
+5. Compile Contract
 
 ```shell
   npx hardhat compile
 ```
 
-4. Start Hardhat Node
+6. Start Hardhat Node
 
 ```shell
   npx hardhat node
 ```
 
-5. Deployment
+7. Deployment
 
 ```shell
 npx hardhat run scripts/deploy.ts --network localhost
 ```
 
-5. Run tests
+8. Run tests
 
 ```shell
 npx hardhat test test/index.ts --network localhost
